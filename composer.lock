@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f14e036ef9a702428d1877ddc0bc8fbd",
+    "content-hash": "3121cdf1bc6e9cb97f72460c38ccca1e",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -3649,16 +3649,16 @@
         },
         {
             "name": "robsontenorio/mary",
-            "version": "1.13.1",
+            "version": "1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robsontenorio/mary.git",
-                "reference": "27e479760b1039658b96fcf1818ee70f3392ef2b"
+                "reference": "d2efbc00a325d4930a4dbfa73510c0abc662a15c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/27e479760b1039658b96fcf1818ee70f3392ef2b",
-                "reference": "27e479760b1039658b96fcf1818ee70f3392ef2b",
+                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/d2efbc00a325d4930a4dbfa73510c0abc662a15c",
+                "reference": "d2efbc00a325d4930a4dbfa73510c0abc662a15c",
                 "shasum": ""
             },
             "require": {
@@ -3698,19 +3698,22 @@
                     "homepage": "https://github.com/robsontenorio"
                 }
             ],
-            "description": "Laravel blade components for Livewire 3",
+            "description": "Laravel Blade UI Components for Livewire 3",
             "homepage": "https://mary-ui.com",
             "keywords": [
-                "Mary",
+                "alpinejs",
                 "blade",
                 "components",
                 "laravel",
                 "livewire",
+                "livewire-components",
+                "livewire-packages",
+                "tallstack",
                 "ui"
             ],
             "support": {
                 "issues": "https://github.com/robsontenorio/mary/issues",
-                "source": "https://github.com/robsontenorio/mary/tree/1.13.1"
+                "source": "https://github.com/robsontenorio/mary/tree/1.14.1"
             },
             "funding": [
                 {
@@ -3718,7 +3721,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-20T19:55:36+00:00"
+            "time": "2023-12-22T12:27:22+00:00"
         },
         {
             "name": "symfony/console",
