@@ -25,3 +25,17 @@ it('should me able to register a new user', function () {
 
     assertDatabaseCount('users', 1);
 });
+
+test('validation rules', function ($object) {
+    Livewire::test(Register::class)
+        ->set($object->field, $object->value)
+        ->call('submit')
+        ->assertHasErrors([$object->field => $object->rule]);
+
+})->with([
+    'name::required'     => (object) ['field' => 'name', 'value' => '', 'rule' => 'required'],
+    'name::max'          => (object) ['field' => 'name', 'value' => str_repeat('*', 256), 'rule' => 'max'],
+    'email::required'    => (object) ['field' => 'email', 'value' => '', 'rule' => 'required'],
+    'email::email'       => (object) ['field' => 'email', 'value' => 'lala', 'rule' => 'email'],
+    'password::required' => (object) ['field' => 'password', 'value' => '', 'rule' => 'required'],
+]);
