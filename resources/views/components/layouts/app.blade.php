@@ -19,6 +19,7 @@
 
             {{-- Your logo --}}
             My App
+            {{ auth()->user()->name }}
         </x-slot:brand>
 
         {{-- Right side actions --}}
