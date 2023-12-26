@@ -20,7 +20,7 @@ class Login extends Component
     public function login(): void
     {
         if(!Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            return;
+            $this->addError('invalidCredentials', 'Email or Password are wrong!');
         }
 
         $this->redirect(route('dashboard'));
