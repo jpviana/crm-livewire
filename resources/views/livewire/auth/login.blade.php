@@ -1,4 +1,14 @@
 <div>
+    @if($errors->hasAny(['invalidCredentials', 'rateLimiter']))
+    <x-alert icon="o-home" class="alert-warning">
+        @error('invalidCredentials')
+        {{$message}}
+        @enderror
+        @error('rateLimiter')
+        {{$message}}
+        @enderror
+    </x-alert>
+    @endif
     <x-card title="Login" shadow class="mx-auto w-[450px]">
         <x-form wire:submit="login">
             <x-input label="Email" wire:model="email"/>
@@ -6,11 +16,9 @@
 
             <x-slot:actions>
                 <x-button label="Cancel" type="reset"/>
-                <x-button label="Login" class="btn-primary" type="submit" spinner="submit" />
+                <x-button label="Login" class="btn-primary" type="submit" spinner="submit"/>
             </x-slot:actions>
         </x-form>
-        @error('invalidCredentials')
-        <span>{{ $message }}</span>
-        @enderror
+
     </x-card>
 </div>
