@@ -14,6 +14,6 @@ it('be able should log out', function () {
         ->call('logout')
         ->assertRedirect(route('auth.login'));
 
-    expect(auth()->guest())->toBeTrue();
-    expect(auth()->check())->toBeFalse();
+    expect(auth()->guest())->toBeTrue()
+        ->and(auth()->check())->toBeFalse();
 });
