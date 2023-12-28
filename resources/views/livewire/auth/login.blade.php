@@ -13,12 +13,14 @@
         <x-form wire:submit="login">
             <x-input label="Email" wire:model="email"/>
             <x-input label="password" wire:model="password" type="password"/>
-
+            <div>
+                <a href="{{route('auth.password.recovery')}}"  class="link-primary textarea-xs">Forgot Password</a>
+            </div>
             <x-slot:actions>
                 <div class="w-full flex items-center justify-between">
                     <a wire:navigate href="{{route('auth.register')}}" class="link-primary">Create account</a>
                     <div>
-                        <x-button label="Login" class="btn-primary btn-sm" type="submit" spinner="submit"/>
+                        <x-button label="Login" class="btn-primary" type="submit" spinner="submit"/>
                     </div>
                 </div>
             </x-slot:actions>

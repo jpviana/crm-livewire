@@ -14,5 +14,6 @@ it('should be able recovery a password', function () {
 
     Livewire::test(Recovery::class)
         ->set('email', $user->email)
-        ->call('recovery');
+        ->call('recovery')
+        ->assertOk();
 });
