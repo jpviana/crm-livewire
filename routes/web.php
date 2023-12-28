@@ -11,5 +11,5 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/register', Register::class)->name('auth.register');
 Route::get('/login', Login::class)->name('auth.login');
-Route::get('/recovery', Recovery::class)->name('auth.password.recovery');
+Route::get('/recovery', Recovery::class)->name('password.recovery');
 Route::get('/reset', Recovery::class)->name('password.reset');
