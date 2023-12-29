@@ -6,7 +6,7 @@
             </x-alert>
         @endif
 
-        <x-form wire:submit="recovery">
+        <x-form wire:submit="startPasswordRecovery">
             <x-input label="Email" wire:model="email"/>
 
             <x-slot:actions>
