@@ -2,9 +2,12 @@
 
 namespace App\Livewire\Auth\Password;
 
-use Illuminate\Support\Facades\{DB, Hash};
-use Illuminate\View\View;
-use Livewire\Attributes\Rule;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\{DB, Hash, Password};
+use Illuminate\Support\Str;
+use Livewire\Attributes\{Computed, Layout, Rule};
 use Livewire\Component;
 
 class Reset extends Component
@@ -33,11 +36,41 @@ class Reset extends Component
             $this->redirectRoute('auth.login');
         }
     }
+    #[Layout('components.layouts.guest')]
     public function render(): View
     {
         return view('livewire.auth.password.reset');
     }
 
+    public function updatePassword(): void
+    {
+        $this->validate();
+
+        $status = Password::reset(
+            $this->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, $password) {
+                $user->password       = $password;
+                $user->remember_token = Str::random(60);
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        session()->flash('status', __($status));
+
+        if ($status !== Password::PASSWORD_RESET) {
+            return;
+        }
+
+        $this->redirect(route('auth.login'));
+    }
+
+    #[Computed]
+    public function obfuscatedEmail(): string
+    {
+        return obfuscate_email($this->email);
+    }
     private function tokenNotValid(): bool
     {
         $tokens = DB::table('password_reset_tokens')
